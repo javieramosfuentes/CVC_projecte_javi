@@ -18,9 +18,9 @@ Table(album, "album\n(Album of players)") {
 
 Table(player, "player") {
     primary_key(id_player) INTEGER
-    name VARCHAR[255]
-    lastname VARCHAR[255]
-    position VARCHAR[50]
+    name VARCHAR[32]
+    lastname VARCHAR[32]
+    position VARCHAR[2]
     age INTEGER
     goals INTEGER
     FK id_team
@@ -28,15 +28,15 @@ Table(player, "player") {
 
 Table(coach, "coach") {
     primary_key(id_coach) INTEGER
-    name VARCHAR[255]
-    lastname VARCHAR[255]
+    name VARCHAR[32]
+    lastname VARCHAR[32]
     FK id_team
 }
 
 Table(team, "team") {
     primary_key(id_team) INTEGER
-    name VARCHAR[255]
-    shield INTEGER
+    name VARCHAR[32]
+    shield VARCHAR[255]
 }
 
 ' relationships
