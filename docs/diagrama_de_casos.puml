@@ -1,0 +1,24 @@
+@startuml
+
+left to right direction
+
+actor "User" as User
+actor "Administrator" as Admin
+
+rectangle "Car Management" {
+    User --> (Explore Cars) /' Explorar Cotxes '/
+    User --> (Make Reservation) /' Realitzar Reserva '/
+    User --> (Manage Reservations) /' Gestionar Reserves '/
+    User --> (Add Comments and Ratings) /' Afegir Comentaris i Puntuacions '/
+    Admin --> (Manage Cars) /' Gestionar Cotxes '/
+}
+
+rectangle "User Management" {
+    Admin --> (Manage Users) /' Gestinar Usuaris '/
+}
+
+rectangle "Car Type Management" {
+    Admin --> (Manage Car Types) /' Gestionar Tipus de Cotxes '/
+}
+
+@enduml

@@ -7,9 +7,16 @@ hide stereotypes
 ' entities
 Table(user, "user") {
     primary_key(id_user) INTEGER
+    email VARCHAR[255]
+}
+
+Table(login, "login") {
+    primary_key(login_id) INTEGER
     username VARCHAR[32]
     password VARCHAR[64]
-    email VARCHAR[255]
+    role VARCHAR[255]
+    last_login DATETIME
+    FK id_user
 }
 
 Table(album, "album\n(Album of players)") {
@@ -41,6 +48,7 @@ Table(team, "team") {
 
 ' relationships
 user "1" --> "1" album
+user "1" --> "1..N" login
 
 album "1..N" --> "1..N" player
 

@@ -1,4 +1,4 @@
-@startuml
+@startuml 
 class User {
     - id_user: int
     - username: string
