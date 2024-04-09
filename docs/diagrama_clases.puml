@@ -1,0 +1,43 @@
+@startuml
+class User {
+    - id_user: int
+    - username: string
+    - password: string
+    - email: string
+}
+
+class Album {
+    - id_album: int
+    - players: Array[]
+}
+
+class Player {
+    - id_player: int
+    - name: string
+    - lastname: string
+    - position: string
+    - age: int
+    - goals: int
+    - id_team: int
+}
+
+class Coach {
+    - id_coach: int
+    - name: string
+    - lastname: string
+    - id_team: int
+}
+
+class Team {
+    - id_team: int
+    - name: string
+    - shield: string
+}
+
+User  --  Album
+
+Album --  Player
+
+Team  --  Player
+Team  --  Coach
+@enduml
