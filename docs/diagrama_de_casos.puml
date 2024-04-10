@@ -5,20 +5,31 @@ left to right direction
 actor "User" as User
 actor "Administrator" as Admin
 
-rectangle "Car Management" {
-    User --> (Explore Cars) /' Explorar Cotxes '/
-    User --> (Make Reservation) /' Realitzar Reserva '/
-    User --> (Manage Reservations) /' Gestionar Reserves '/
-    User --> (Add Comments and Ratings) /' Afegir Comentaris i Puntuacions '/
-    Admin --> (Manage Cars) /' Gestionar Cotxes '/
+rectangle "Admin Possibilities" {
+    Admin --> (Add player)
+    Admin --> (Edit player)
+    Admin --> (Discharge player)
+    Admin --> (Add Coach)
+    Admin --> (Edit Coach)
+    Admin --> (Discharge Coach)
+    Admin --> (See users)
 }
 
-rectangle "User Management" {
-    Admin --> (Manage Users) /' Gestinar Usuaris '/
+rectangle "Database interaction" {
+    User --> (See Players)
+    User --> (See Teams)
 }
 
-rectangle "Car Type Management" {
-    Admin --> (Manage Car Types) /' Gestionar Tipus de Cotxes '/
+rectangle "Interactive Part" {
+    User --> (Open pack)
+    User --> (Discard repeated player)
+    User --> (See Album)
+}
+
+rectangle "Session" {
+    User --> (Login)
+    User --> (Logout)
+    User --> (Register)
 }
 
 @enduml
