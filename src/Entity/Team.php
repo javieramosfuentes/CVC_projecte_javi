@@ -21,16 +21,22 @@ class Team
     #[ORM\Column(length: 255)]
     private ?string $shield = null;
 
-    #[ORM\OneToMany(targetEntity: Coach::class, mappedBy: 'id_team')]
+    #[ORM\OneToMany(targetEntity: Coach::class, mappedBy: 'team_id')]
     private Collection $coaches;
 
-    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'id_team')]
+    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'team_id')]
     private Collection $players;
 
     public function __construct()
     {
         $this->coaches = new ArrayCollection();
         $this->players = new ArrayCollection();
+    }
+    public function setId($id): static
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getId(): ?int
