@@ -1,57 +1,51 @@
 @startuml
-!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
-!define primary_key(x) <b><u>x</u></b>
-hide methods
-hide stereotypes
+hide circle
+skinparam linetype ortho
 
-' entities
-Table(user, "user") {
-    primary_key(id_user) INTEGER
-    email VARCHAR[255]
+entity "User" as user {
+  *id_user : auto_increment
+  email : varchar(255)
 }
 
-Table(login, "login") {
-    primary_key(login_id) INTEGER
-    username VARCHAR[32]
-    password VARCHAR[64]
-    role VARCHAR[255]
-    last_login DATETIME
-    FK id_user
+entity "Login" as login {
+  *id_login : auto_increment
+  username : varchar(32)
+  password : varchar(32)
+  role : varchar(32)
+  last_login : date
+  FK id_user
 }
 
-Table(album, "album\n(Album of players)") {
-    primary_key(id_album) INTEGER
+entity "Album" as album {
+  *id_album : auto_increment
 }
 
-Table(player, "player") {
-    primary_key(id_player) INTEGER
-    name VARCHAR[32]
-    lastname VARCHAR[32]
-    position VARCHAR[2]
-    age INTEGER
-    goals INTEGER
-    FK id_team
+entity "Team" as team {
+  *id_team : id
+  name : varchar(32)
+  shield : varchar(255)
 }
 
-Table(coach, "coach") {
-    primary_key(id_coach) INTEGER
-    name VARCHAR[32]
-    lastname VARCHAR[32]
-    FK id_team
+entity "Coach" as coach {
+  *id_coach : id
+  name : varchar(32)
+  lastname : varchar(32)
+  FK id_team
 }
 
-Table(team, "team") {
-    primary_key(id_team) INTEGER
-    name VARCHAR[32]
-    shield VARCHAR[255]
+entity "Player" as player {
+  *id_player : id
+  name : varchar(32)
+  lastname : varchar(32)
+  position : varchar(32)
+  age : int(60)
+  goals : int(255)
+  FK id_team
 }
 
-' relationships
-user "1" --> "1" album
-user "1" --> "1..N" login
-
-album "1..N" --> "1..N" player
-
-team "1" --> "1..N" player
-team "1" --> "1..N" coach
+user||..o{login
+user||..||album
+player}o..o{album
+team||..|{player
+coach}|..||team
 @enduml
