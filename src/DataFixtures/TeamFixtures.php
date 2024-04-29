@@ -19,12 +19,15 @@ class TeamFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-//        $team = new Team();
-//        $team->setName('Pego CF');
-//        $team->setShield($this->faker->image);
-//        $manager->persist($team);
+        $team1 = new Team();
+        $team1->setName('Equipo 1');
+        $team1->setShield('ruta/a/escudo1.png');
+        $manager->persist($team1);
+
+        $team2 = new Team();
+        $team2->setName('Equipo 2');
+        $team2->setShield('ruta/a/escudo2.png');
+        $manager->persist($team2);
         $manager->flush();
     }
 }

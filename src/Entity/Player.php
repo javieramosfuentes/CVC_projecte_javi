@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlayerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlayerRepository::class)]
@@ -19,18 +21,25 @@ class Player
     #[ORM\Column(length: 32)]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 3)]
+    #[ORM\Column(length: 255)]
     private ?string $position = null;
 
     #[ORM\Column]
     private ?int $age = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column]
     private ?int $goals = null;
 
+    #[ORM\ManyToMany(targetEntity: Album::class, inversedBy: 'players')]
+    private Collection $album;
+
     #[ORM\ManyToOne(inversedBy: 'players')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Team $team = null;
+
+    public function __construct()
+    {
+        $this->album = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,23 +99,46 @@ class Player
         return $this->goals;
     }
 
-    public function setGoals(?int $goals): static
+    public function setGoals(int $goals): static
     {
         $this->goals = $goals;
 
         return $this;
     }
 
-    public function getIdTeam(): ?Team
+    /**
+     * @return Collection<int, Album>
+     */
+    public function getAlbum(): Collection
     {
-        return $this->id_team;
+        return $this->album;
     }
 
-    public function setIdTeam(?Team $id_team): static
+    public function addAlbum(Album $album): static
     {
-        $this->id_team = $id_team;
+        if (!$this->album->contains($album)) {
+            $this->album->add($album);
+        }
 
         return $this;
     }
 
+    public function removeAlbum(Album $album): static
+    {
+        $this->album->removeElement($album);
+
+        return $this;
+    }
+
+    public function getTeam(): ?Team
+    {
+        return $this->team;
+    }
+
+    public function setTeam(?Team $team): static
+    {
+        $this->team = $team;
+
+        return $this;
+    }
 }

@@ -20,7 +20,6 @@ class Coach
     private ?string $lastname = null;
 
     #[ORM\ManyToOne(inversedBy: 'coaches')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Team $team = null;
 
     public function getId(): ?int
@@ -52,14 +51,14 @@ class Coach
         return $this;
     }
 
-    public function getIdTeam(): ?Team
+    public function getTeam(): ?Team
     {
-        return $this->id_team;
+        return $this->team;
     }
 
-    public function setIdTeam(?Team $id_team): static
+    public function setTeam(?Team $team): static
     {
-        $this->id_team = $id_team;
+        $this->team = $team;
 
         return $this;
     }

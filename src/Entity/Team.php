@@ -21,22 +21,16 @@ class Team
     #[ORM\Column(length: 255)]
     private ?string $shield = null;
 
-    #[ORM\OneToMany(targetEntity: Coach::class, mappedBy: 'team_id')]
+    #[ORM\OneToMany(targetEntity: Coach::class, mappedBy: 'team')]
     private Collection $coaches;
 
-    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'team_id')]
+    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'team')]
     private Collection $players;
 
     public function __construct()
     {
         $this->coaches = new ArrayCollection();
         $this->players = new ArrayCollection();
-    }
-    public function setId($id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getId(): ?int
@@ -80,7 +74,7 @@ class Team
     {
         if (!$this->coaches->contains($coach)) {
             $this->coaches->add($coach);
-            $coach->setIdTeam($this);
+            $coach->setTeam($this);
         }
 
         return $this;
@@ -90,8 +84,8 @@ class Team
     {
         if ($this->coaches->removeElement($coach)) {
             // set the owning side to null (unless already changed)
-            if ($coach->getIdTeam() === $this) {
-                $coach->setIdTeam(null);
+            if ($coach->getTeam() === $this) {
+                $coach->setTeam(null);
             }
         }
 
@@ -110,7 +104,7 @@ class Team
     {
         if (!$this->players->contains($player)) {
             $this->players->add($player);
-            $player->setIdTeam($this);
+            $player->setTeam($this);
         }
 
         return $this;
@@ -120,8 +114,8 @@ class Team
     {
         if ($this->players->removeElement($player)) {
             // set the owning side to null (unless already changed)
-            if ($player->getIdTeam() === $this) {
-                $player->setIdTeam(null);
+            if ($player->getTeam() === $this) {
+                $player->setTeam(null);
             }
         }
 

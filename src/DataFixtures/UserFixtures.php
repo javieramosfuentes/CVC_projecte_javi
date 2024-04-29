@@ -20,11 +20,14 @@ class UserFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-//        $user = new User();
-//        $user->setEmail($this->faker->email);
-//        $manager->persist($user);
+        // Crear usuarios
+        $user1 = new User();
+        $user1->setEmail('usuario1@example.com');
+        $manager->persist($user1);
+
+        $user2 = new User();
+        $user2->setEmail('usuario2@example.com');
+        $manager->persist($user2);
         $manager->flush();
     }
 }

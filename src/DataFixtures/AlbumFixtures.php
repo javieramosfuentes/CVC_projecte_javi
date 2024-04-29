@@ -10,7 +10,7 @@ class AlbumFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-//        $album = new Album();
+        $album = new Album();
 //        // $product = new Product();
 //        $manager->persist($album);
         $manager->flush();

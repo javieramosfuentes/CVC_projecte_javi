@@ -18,14 +18,20 @@ class LoginFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-//        $login = new Login();
-//        $login->setUsername("test");
-//        $login->setPassword($this->hasher->hashPassword($login,'testPassword'));
-//        $login->setRole("ADMIN");
-//        $login->setIdUser(1);
-//        $manager->persist($login);
-        $manager->flush();
+// Crear registros de inicio de sesión
+//        $login1 = new Login();
+//        $login1->setUsername('usuario1');
+//        $login1->setPassword('password1');
+//        $login1->setRole('ROLE_USER');
+//        $login1->setLastLogin(new \DateTime());
+//        $manager->persist($login1);
+//
+//        $login2 = new Login();
+//        $login2->setUsername('usuario2');
+//        $login2->setPassword('password2');
+//        $login2->setRole('ROLE_ADMIN');
+//        $login2->setLastLogin(new \DateTime());
+//        $manager->persist($login2);
+//        $manager->flush();
     }
 }
