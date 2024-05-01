@@ -3,39 +3,8 @@
     --secondary-color: #9dd6ad;
     --tertiary-color: #f5ffcb;
     --quaternary-color: #1a1a1a;
+    --primary-font:raleway,normal;
+    --secondary-font:alfarn-2,normal;
+    --tertiary-font: bitter,normal;
+    --quaternary-font:economica,normal;
 }
-
-.bg-primary-cvc{
-    background-color: var(--primary-color)!important;
-}
-
-.bg-secondary-cvc{
-    background-color: var(--secondary-color)!important;
-}
-
-.bg-tertiary-cvc{
-    background-color: var(--tertiary-color)!important;
-}
-
-.bg-quaternary-cvc{
-    background-color: var(--quaternary-color)!important;
-}
-
-.text-primary-cvc{
-    color: var(--primary-color)!important;
-}
-
-.text-secondary-cvc{
-    color: var(--secondary-color)!important;
-}
-
-.text-tertiary-cvc{
-    color: var(--tertiary-color)!important;
-}
-
-.text-quaternary-cvc{
-    color: var(--quaternary-color)!important;
-}
-
-.
-
