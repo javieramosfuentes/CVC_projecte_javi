@@ -5,15 +5,24 @@
                 <a class="navbar-brand" href="#">
                     <img src="/assets/src/logoCVC.png" alt="logo-cvc">
                 </a>
-                <a class="navbar-brand" href="#">
-                    <i class="bi bi-person fs-2"></i>
-                </a>
+                <span class="d-flex align-items-center justify-content-between">
+                    <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login')}}">
+                        Inicia sesión
+                    </a>
+                    <span class="mx-3 text-quaternary-cvc">|</span>
+                    <a class="navbar-brand primary-font-cvc m-0" href="#">
+                        Registrate
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        <i class="bi bi-person fs-2"></i>
+                    </a>
+                </span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light px-2 bg-quaternary-cvc">
+        <nav class="navbar navbar-expand-lg navbar-light px-2 bg-quaternary-cvc shadow">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav align-items-center justify-content-center w-100 fs-3 gap-4">
                     <li class="nav-item active">
@@ -28,11 +37,11 @@
                     <li class="nav-item">
                         <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Sobre Nosotros</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link primary-font-cvc text-primary-cvc" href="#"><span class="p-2 bg-primary-cvc rounded-5"></span>Nuevo Sobre: 01h 12min 12sec</a>
-                    </li>
                 </ul>
             </div>
         </nav>
     </div>
+</div>
+<div class="w-100 d-flex justify-content-center sticky-top">
+    <span class="primary-font-cvc text-center bg-danger px-2 py-1 rounded-4 my-3">Nuevo Sobre: 01h 12m 12s</span>
 </div>

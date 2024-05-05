@@ -1,5 +1,7 @@
-//import { startStimulusApp } from '@symfony/stimulus-bundle';
+import { Controller } from '@hotwired/stimulus';
 
-//const app = startStimulusApp();
-// register any custom, 3rd party controllers here
-// app.register('some_controller_name', SomeImportedController);
+export default class extends Controller {
+    connect() {
+        this.element.textContent = 'Hello Stimulus! Edit me in assets/controllers/hello_controller.js';
+    }
+}
