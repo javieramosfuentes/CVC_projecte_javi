@@ -7,5 +7,6 @@ import './bootstrap.js';
  */
 import './styles/variables.css';
 import './styles/app.css';
+import './src/logoCVC.png'
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

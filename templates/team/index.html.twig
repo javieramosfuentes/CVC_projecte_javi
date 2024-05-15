@@ -1,0 +1,41 @@
+{% extends 'base_cvc_back.html.twig' %}
+
+{% block title %}Team index{% endblock %}
+
+{% block body %}
+<div class="py-5 px-2">
+    <div class="d-flex align-items-center justify-content-between py-3">
+        <h2 class="m-0 border-bottom border-success text-primary-cvc secondary-font-cvc d-flex align-items-center">Equipos  <i class="bi bi-shield-shaded"></i></h2>
+        <div class="d-flex">
+            <input type="text" name="team_searcher" placeholder="Busca un registro aquí" id="team_searcher" class="form-control rounded-0">
+            <a href="{{ path('app_team_new') }}" class="btn btn-success rounded-0 d-flex align-items-center">Añadir <i class="bi bi-plus fs-4"></i></a>
+        </div>
+    </div>
+
+    <table class="table table-dark shadow">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Escudo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+            <tr>
+                <td>{{ team.name }}</td>
+                <td>{{ team.shield }}</td>
+                <td>
+                    <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn bg-info rounded-0"><i class="bi bi-eye-fill"></i></a>
+                    <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-primary rounded-0"><i class="bi bi-pencil-square"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
