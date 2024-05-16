@@ -6,8 +6,9 @@
 <div class="py-5 px-2">
     <div class="d-flex align-items-center justify-content-between py-3">
         <h2 class="m-0 border-bottom border-success text-primary-cvc secondary-font-cvc d-flex align-items-center">Equipos  <i class="bi bi-shield-shaded"></i></h2>
-        <div class="d-flex">
-            <input type="text" name="team_searcher" placeholder="Busca un registro aquí" id="team_searcher" class="form-control rounded-0">
+        <div class="d-flex position-relative">
+            <i class="bi bi-search position-absolute start-0 top-50 ms-4 text-quaternary-cvc translate-middle opacity-75"></i>
+            <input type="text" name="team_searcher" placeholder="Busca un registro aquí" id="team_searcher" class="form-control rounded-0 ps-5">
             <a href="{{ path('app_team_new') }}" class="btn btn-success rounded-0 d-flex align-items-center">Añadir <i class="bi bi-plus fs-4"></i></a>
         </div>
     </div>

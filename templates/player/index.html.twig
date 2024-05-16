@@ -1,13 +1,14 @@
 {% extends 'base_cvc_back.html.twig' %}
 
-{% block title %}Player index{% endblock %}
+{% block title %}Jugadores - CVC{% endblock %}
 
 {% block body %}
 <div class="py-5 px-2">
     <div class="d-flex align-items-center justify-content-between py-3">
         <h2 class="m-0 border-bottom border-success text-primary-cvc secondary-font-cvc d-flex align-items-center">Jugadores <i class="bi bi-person-arms-up mx-3"></i></h2>
-        <div class="d-flex">
-            <input type="text" name="player_searcher" placeholder="Busca un registro aquí" id="player_searcher" class="form-control rounded-0">
+        <div class="d-flex position-relative">
+            <i class="bi bi-search position-absolute start-0 top-50 ms-4 text-quaternary-cvc translate-middle opacity-75"></i>
+            <input type="text" name="player_searcher" placeholder="Busca un registro aquí" id="player_searcher" class="form-control rounded-0 ps-5">
             <a href="{{ path('app_player_new') }}" class="btn btn-success rounded-0 d-flex align-items-center">Añadir <i class="bi bi-plus fs-4"></i></a>
         </div>
     </div>
@@ -20,6 +21,7 @@
                 <th>Posición</th>
                 <th>Edad</th>
                 <th>Goles</th>
+                <th>Equipo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -31,6 +33,7 @@
                 <td>{{ player.position }}</td>
                 <td>{{ player.age }}</td>
                 <td>{{ player.goals }}</td>
+                <td>{{ player.team.name }}</td>
                 <td>
                     <a href="{{ path('app_player_show', {'id': player.id}) }}" class="btn bg-info rounded-0"><i class="bi bi-eye-fill"></i></a>
                     <a href="{{ path('app_player_edit', {'id': player.id}) }}" class="btn btn-primary rounded-0"><i class="bi bi-pencil-square"></i></a>
