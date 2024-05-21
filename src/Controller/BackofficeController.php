@@ -11,8 +11,7 @@ class BackofficeController extends AbstractController
     #[Route('/admin', name: 'app_backoffice')]
     public function index(): Response
     {
-        return $this->render('backoffice/index.html.twig', [
-            'controller_name' => 'BackofficeController',
-        ]);
+
+        return $this->redirectToRoute('app_player_index');
     }
 }

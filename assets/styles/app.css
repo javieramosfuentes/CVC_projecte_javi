@@ -57,3 +57,7 @@
 .quaternary-border-cvc{
     border-color: var(--quaternary-color)!important;
 }
+
+.aside-ul a:hover{
+    background-color: var(--secondary-color) !important;
+}

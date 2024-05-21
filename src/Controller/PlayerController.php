@@ -6,6 +6,7 @@ use App\Entity\Player;
 use App\Form\PlayerType;
 use App\Repository\PlayerRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,23 @@ use Symfony\Component\Routing\Attribute\Route;
 class PlayerController extends AbstractController
 {
     #[Route('/', name: 'app_player_index', methods: ['GET'])]
-    public function index(PlayerRepository $playerRepository): Response
+    public function index(PlayerRepository $playerRepository,PaginatorInterface $paginator,Request $request): Response
     {
+        $q = $request->query->get('q', '');
+
+        if (empty($q)) {
+            $playerQuery = $playerRepository->findAllQuery();
+        } else {
+            $playerQuery = $playerRepository->findByText($q);
+        }
+        $pagination = $paginator->paginate(
+            $playerQuery,
+            $request->query->getInt('page', 1),
+            20
+        );
         return $this->render('player/index.html.twig', [
-            'players' => $playerRepository->findAll(),
+            'players' => $pagination,
+            'q' => $q,
         ]);
     }
 

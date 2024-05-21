@@ -6,6 +6,7 @@ use App\Entity\Coach;
 use App\Form\CoachType;
 use App\Repository\CoachRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,23 @@ use Symfony\Component\Routing\Attribute\Route;
 class CoachController extends AbstractController
 {
     #[Route('/', name: 'app_coach_index', methods: ['GET'])]
-    public function index(CoachRepository $coachRepository): Response
+    public function index(CoachRepository $coachRepository,PaginatorInterface $paginator,Request $request): Response
     {
+        $q = $request->query->get('q', '');
+
+        if (empty($q)) {
+            $coachQuery = $coachRepository->findAllQuery();
+        } else {
+            $coachQuery = $coachRepository->findByText($q);
+        }
+        $pagination = $paginator->paginate(
+            $coachQuery,
+            $request->query->getInt('page', 1),
+            20
+        );
         return $this->render('coach/index.html.twig', [
-            'coaches' => $coachRepository->findAll(),
+            'coaches' => $pagination,
+            'q' => $q,
         ]);
     }
 

@@ -45,4 +45,22 @@ class TeamRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findAllQuery(): \Doctrine\ORM\Query
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery();
+        //->andWhere('c.isDeleted IS NULL OR c.isDeleted = 0') filtrat per al soft delete
+
+    }
+
+    public function findByText($value): array {
+        return $this->createQueryBuilder('c')
+            ->where('c.name LIKE :value')
+            ->setParameter('value', '%' . $value . '%')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

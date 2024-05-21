@@ -19,7 +19,7 @@ class TeamFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $team1 = new Team();
+        /**$team1 = new Team();
         $team1->setName('Equipo 1');
         $team1->setShield('ruta/a/escudo1.png');
         $manager->persist($team1);
@@ -29,5 +29,6 @@ class TeamFixtures extends Fixture
         $team2->setShield('ruta/a/escudo2.png');
         $manager->persist($team2);
         $manager->flush();
+         * */
     }
 }
