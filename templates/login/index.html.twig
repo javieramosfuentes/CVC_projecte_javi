@@ -1,31 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}Inicia Sesión - CVC{% endblock %}
 
 {% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
     <div class="row text-center">
         <div class="col-12">
             <h2 class="display-2">Inicio de Sesión</h2>
         </div>
         <div class="col-12">
-            <p class="fs-4">¿Aún no te has registrado? Hazlo <a href="#">aquí</a>!</p>
+            <p class="fs-4">¿Aún no te has registrado? Hazlo <a href="#" class="text-primary-cvc">aquí</a>!</p>
         </div>
     </div>
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}})  }}
-    <div class="row">
-        <div class="col-12">
-            <div>
-                <div class="py-3">
-                    <label for="username" class="fs-3">Nombre de usuario</label>
-                    {{ form_widget(form.username, { 'attr': {'id': 'username','placeholder':"Introduce tu nombre de usuario", 'class':'form-control rounded-0 p-2', 'name':'_username'} }) }}
-                </div>
-                <div class="py-3">
-                    <label class="fs-3">Contraseña</label>
-                    {{ form_widget(form.password, { 'attr': {'id': 'password','placeholder':"Introduce tu contraseña", 'class':'form-control rounded-0 p-2','name':'_password'} }) }}
-                </div>
-                <button class="btn bg-primary-cvc rounded-0 my-5 p-2" type="submit">{{ button_label|default('Iniciar sesión') }}</button>
+    <form method="post" action="{{ path('app_login') }}" class="row">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <div class="col-3"></div>
+        <div class="form-floating mb-3 text-quaternary-cvc col-px-0">
+            <input type="text" class="form-control px- rounded-0" id="floatingInput" placeholder="Usuario"
+                   name="_username">
+            <label for="username" class="mx-4"><i class="bi bi-person-fill"></i> Usuario</label>
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="form-floating mb-3 text-quaternary-cvc col-6 px-0">
+            <input type="password" class="form-control px-4 rounded-0" id="floatingInput" placeholder="Contraseña"
+                   name="_password">
+            <label for="password" class="mx-4"><i class="bi bi-key-fill"></i> Contraseña</label>
+        </div>
+        <div class="col-3"></div>
+        {% if error %}
+            <div class="alert alert-danger col-12" role="alert">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
-        </div>
-    </div>
-    {{ form_end(form) }}
+        {% endif %}
+        <div class="col-3"></div>
+        <button class="btn bg-primary-cvc mt-3 col-6 rounded-0" type="submit">Iniciar sesión</button>
+        <div class="col-3"></div>
+    </form>
 {% endblock %}

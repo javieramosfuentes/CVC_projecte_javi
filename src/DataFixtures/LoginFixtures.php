@@ -7,15 +7,20 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Faker\Generator;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
 class LoginFixtures extends Fixture
 {
 
-    public function __construct(private UserPasswordHasherInterface $hasher)
+    private Generator $faker;
+    private UserPasswordHasherInterface $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher)
     {
         $this->faker = Factory::create('es_ES');
+        $this->hasher = $hasher;
     }
     public function load(ObjectManager $manager): void
     {
@@ -24,7 +29,7 @@ class LoginFixtures extends Fixture
         $user1->setEmail('usuario1@example.com');
         $login1 = new Login();
         $login1->setUsername('usuario1');
-        $login1->setPassword('password1');
+        $login1->setPassword($this->hasher->hashPassword($login1,'usuario1'));
         $login1->setRole('ROLE_USER');
         //$login1->setLastLogin(new \DateTime());
         $login1->setUser($user1);
@@ -35,7 +40,7 @@ class LoginFixtures extends Fixture
         $user2->setEmail('usuario1@example.com');
         $login2 = new Login();
         $login2->setUsername('usuario2');
-        $login2->setPassword('password2');
+        $login2->setPassword($this->hasher->hashPassword($login2,'usuario2'));
         $login2->setRole('ROLE_ADMIN');
         $login2->setUser($user2);
         //$login2->setLastLogin(new \DateTime());

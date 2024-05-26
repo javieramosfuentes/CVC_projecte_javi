@@ -19,17 +19,22 @@ class LoginController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
 
         $lastUsername = $authenticationUtils->getLastUsername();
-        $user = new Login();
-        $form = $this->createForm(LoginType::class, $user);
 
-        if ($authorizationChecker->isGranted('ROLE_LOGIN')) {
+        if ($authorizationChecker->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('app_home');
+        }elseif ($authorizationChecker->isGranted('ROLE_ADMIN')){
+            return $this->redirectToRoute('app_backoffice');
         }
 
         return $this->render('login/index.html.twig', [
             'last_username'=> $lastUsername,
-            'error'        => $error,
-            'form' => $form,
+            'error'        => $error
         ]);
+    }
+
+    #[Route('/logout', name: 'app_logout')]
+    public function logout()
+    {
+
     }
 }

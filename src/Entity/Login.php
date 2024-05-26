@@ -77,9 +77,9 @@ class Login implements UserInterface, PasswordAuthenticatedUserInterface, \JsonS
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getRoles(): array
     {
-        return $this->role;
+        return [$this->role];
     }
 
     public function setRole(string $role): static
@@ -101,11 +101,6 @@ class Login implements UserInterface, PasswordAuthenticatedUserInterface, \JsonS
         return $this;
     }
 
-    public function getRoles(): array
-    {
-        // TODO: Implement getRoles() method.
-    }
-
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
@@ -113,11 +108,12 @@ class Login implements UserInterface, PasswordAuthenticatedUserInterface, \JsonS
 
     public function getUserIdentifier(): string
     {
-        // TODO: Implement getUserIdentifier() method.
+        return $this->getUsername();
     }
 
     public function jsonSerialize(): mixed
     {
         // TODO: Implement jsonSerialize() method.
+        return $this;
     }
 }

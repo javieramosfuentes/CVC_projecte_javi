@@ -1,4 +1,36 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="row py-5">
+    <div class="col-4 py-3">
+        <label for="inputName">Nombre</label>
+        {{ form_widget(form.name, { 'attr': {'id': 'inputName','placeholder':"Introduce el nombre del jugador", 'class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-8 py-3">
+        <label for="inputLastName">Apellido</label>
+        {{ form_widget(form.lastname, { 'attr': {'id': 'inputLastName','placeholder':"Introduce el apellido del jugador", 'class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-2 py-3">
+        <label for="inputAge">Edad</label>
+        {{ form_widget(form.age, { 'attr': {'id': 'inputAge','placeholder':" Edad del jugador", 'class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-2 py-3">
+        <label for="inputGoals">Goles</label>
+        {{ form_widget(form.goals, { 'attr': {'id': 'inputGoals','placeholder':"Goles del jugador", 'class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-2 py-3">
+        <label for="selectPosition">Posición</label>
+        {{ form_widget(form.position, { 'attr': {'id': 'selectPosition','class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-3 py-3">
+        <label for="selectTeam">Equipo</label>
+        {{ form_widget(form.team, { 'attr': {'id': 'selectTeam', 'class':'form-control rounded-0 p-2'} }) }}
+    </div>
+    <div class="col-1 py-3 d-flex align-items-end">
+        <button class="btn btn-primary rounded-0 primary-font-cvc p-2 w-100">{{ button_label|default('Crear') }}</button>
+    </div>
+    <div class="col-2 py-3 d-flex align-items-end">
+        <a href="{{ path('app_player_index') }}" class="btn bg-secondary-cvc primary-font-cvc rounded-0 p-2 w-100">Volver a la lista <i class="bi bi-arrow-return-left"></i></a>
+    </div>
+</div>
+
 {{ form_end(form) }}

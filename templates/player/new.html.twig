@@ -1,11 +1,59 @@
 {% extends 'base_cvc_back.html.twig' %}
 
-{% block title %}New Player{% endblock %}
+{% block title %}Nuevo Jugador - CVC{% endblock %}
 
 {% block body %}
-    <h1>Create new Player</h1>
-
-    {{ include('player/_form.html.twig') }}
-
-    <a href="{{ path('app_player_index') }}">back to list</a>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="secondary-font-cvc">Nuevo Jugador</h2>
+            </div>
+        </div>
+        {{ include('player/_form.html.twig') }}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="tertiary-font-cvc py-3">Recomendaciones</h3>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center py-5">
+                <div class="card rounded-0 bg-tertiary-cvc" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Consulta los <span class="fw-bold">Jugadores</span></h6>
+                        <div class="d-flex gap-2 align-items-center">
+                            <p class="card-text">Consulta todos los jugadores registrados en nuestra base de datos.</p>
+                            <i class="bi bi-person-arms-up fs-1 p-1"></i>
+                        </div>
+                        <a href="{{ path('app_player_index') }}" class="card-link text-quaternary-cvc">Ir a la lista de Jugadores</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center rounded-0">
+                <div class="card rounded-0 bg-tertiary-cvc" style="width: 18rem;">
+                    <div class="card-body d-flex">
+                        <div class="text-right ">
+                            <h5 class="card-title">Entrenadores</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Consulta los <span class="fw-bold">Entrenadores</span></h6>
+                            <a href="{{ path('app_coach_index') }}" class="card-link text-quaternary-cvc">Ir a la lista de Entrenadores</a>
+                        </div>
+                        <div class="d-flex align-items-center px-4">
+                            <i class="bi bi-easel2-fill fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center rounded-0">
+                <div class="card rounded-0 bg-tertiary-cvc" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Consulta los <span class="fw-bold">Equipos</span></h6>
+                        <div class="d-flex gap-2 align-items-center">
+                            <p class="card-text">Consulta todos los equipos registrados en nuestra base de datos.</p>
+                            <i class="bi bi-shield-shaded fs-1 p-1"></i>
+                        </div>
+                        <a href="{{ path('app_team_index') }}" class="card-link text-quaternary-cvc">Ir a la lista de Equipos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
