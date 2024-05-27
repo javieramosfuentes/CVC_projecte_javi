@@ -11,18 +11,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                    <i class="bi bi-person fs-2"></i>
+                    <i class="bi bi-person-fill fs-2"></i>
                 </a>
                 {% else %}
-                    <span class="d-flex align-items-center justify-content-between">
-                    <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login')}}">
-                        Inicia sesión
-                    </a>
-                    <span class="mx-3 text-quaternary-cvc">|</span>
-                    <a class="navbar-brand primary-font-cvc m-0" href="#">
-                        Registrate
-                    </a>
-                </span>
+                    <span class="d-flex align-items-center justify-content-between px-3">
+                        <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login')}}">
+                            Inicia sesión
+                        </a>
+                        <span class="mx-3 text-quaternary-cvc">|</span>
+                        <a class="navbar-brand primary-font-cvc m-0" href="#">
+                            Registrate
+                        </a>
+                    </span>
                 {% endif %}
             </div>
         </nav>

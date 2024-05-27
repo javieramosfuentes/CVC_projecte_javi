@@ -65,3 +65,36 @@
 .border-bottom-cvc{
     border-bottom: 1rem solid var(--secondary-color) !important;
 }
+
+.checkbox-div .checkbox-input:checked{
+    background-color: var(--secondary-color) !important;
+}
+
+.custom-radio-checkbox {
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+}
+
+/* Modificador para dar la imagen de checkbox */
+.custom-radio-checkbox__show--checkbox {
+    background-color: white !important;
+}
+
+/* Oculta input original */
+.custom-radio-checkbox > .custom-radio-checkbox__input {
+    display: none !important;
+}
+
+/* Radio personalizado usando <span> */
+.custom-radio-checkbox > .custom-radio-checkbox__show {
+    display: inline-block !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    margin-right: .5rem !important;
+    background-size: cover !important;
+}
+
+.custom-radio-checkbox > .custom-radio-checkbox__input:checked + .custom-radio-checkbox__show--checkbox {
+    background-color: var(--primary-color) !important;
+}

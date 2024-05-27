@@ -34,4 +34,11 @@ class FrontController extends AbstractController
             'players' => $players,
         ]);
     }
+
+    #[Route('/cookies', name: 'app_cookies')]
+    public function cookies(){
+        return $this->render('front/cookies.html.twig', [
+
+        ]);
+    }
 }

@@ -1,12 +1,22 @@
 <div class="row shadow py-3">
-    <div class="col-12 col-sm-6 d-flex align-items-center bg-quaternary-cvc">
-        <p class="navbar-brand primary-font-cvc mb-0">
-            Javier Ramos Fuentes
-        </p>
+    <div class="col-4 col-sm-5">
+        <div class="d-flex flex-column justify-content-center align-items-end">
+            <a href="#" class="text-primary-cvc link-offset-2">Contacto</a>
+            <a href="#" class="text-primary-cvc link-offset-2">Sobre Nosotros</a>
+            <a href="{{ path('app_logout') }}" class="text-primary-cvc link-offset-2">Cerrar Sesión</a>
+        </div>
     </div>
-    <div class="col-12 col-sm-6">
+    <div class="col-4 col-sm-2 d-flex flex-column justify-content-center align-items-center">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('src/logoCVC-300x100-verd.png') }}" alt="logo-cvc" width="100px">
         </a>
+        <p class="m-0 py-3 d-none d-lg-block">Javier Ramos Fuentes</p>
+    </div>
+    <div class="col-4 col-sm-5">
+        <div class="d-flex flex-column justify-content-center align-items-start">
+            <a href="{{ path('app_cookies') }}" class="text-primary-cvc link-offset-2">Cookies</a>
+            <a href="#" class="text-primary-cvc link-offset-2">FAQ</a>
+            <a href="#" class="text-primary-cvc link-offset-2">Sobre Nosotros</a>
+        </div>
     </div>
 </div>
