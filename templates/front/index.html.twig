@@ -12,7 +12,7 @@
             <div class="list-group rounded-0" data-target="search.results">
                 {% for player in players %}
                     <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" aria-current="true">
-                        <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
+                        <a href="http://localhost:8080/preview/player/{{ player.id }}"><span class="w-75">{{ player.name }} {{ player.lastname }}</span></a>
                         <div class="w-25 d-flex">
                             <div class="text-center w-25">{{ player.position }}</div>
                             <div class="w-75"> {{ player.team.name }}</div>

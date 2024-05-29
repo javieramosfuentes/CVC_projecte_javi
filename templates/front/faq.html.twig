@@ -1,0 +1,140 @@
+{% extends 'base_cvc.html.twig' %}
+
+{% block title %}FAQ - CVC{% endblock %}
+
+{% block body %}
+    <div class="row py-4">
+        <div class="col-12">
+            <h2 class="display-4 secondary-font-cvc text-primary-cvc text-center">Preguntas Frecuentes (FAQ)</h2>
+        </div>
+    </div>
+
+    <div class="row my-3 py-5">
+        <div class="col-12 primary-font-cvc">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item border-0 rounded-0">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary-cvc rounded-0 primary-border-bottom-cvc fs-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Información General
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show bg-tertiary-cvc bg-opacity-75" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div>
+                                <h4>¿Qué es
+                                    CVC?</h4>
+                                <p>Es una herramienta en línea que permite a los usuarios buscar y consultar información
+                                    sobre los jugadores registrados en la Federación Valenciana de Fútbol, así como
+                                    coleccionarlos y gestionar sus perfiles.</p>
+
+                                <h4>¿Cómo puedo registrarme en la plataforma?</h4>
+                                <p>Puedes registrarte haciendo clic en el botón "Registrarse" en la esquina superior
+                                    derecha de nuestra página principal y siguiendo las instrucciones para crear una
+                                    cuenta.</p>
+
+                                <h4>¿Es necesario pagar para usar la plataforma?</h4>
+                                <p>No, el acceso básico a la información de los jugadores es gratuito.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 rounded-0">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary-cvc rounded-0 primary-border-bottom-cvc fs-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Búsqueda de Jugadores
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse  bg-tertiary-cvc bg-opacity-75" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div>
+                                <h4>¿Cómo puedo buscar un jugador específico?</h4>
+                                <p>Puedes utilizar la barra de búsqueda en la página inicial e ingresar el
+                                    nombre del jugador. También puedes
+                                    filtrar resultados por categoría, edad, posición, etc.</p>
+
+                                <h4>¿Qué tipo de información se muestra en el perfil de un jugador?</h4>
+                                <p>Los perfiles de los jugadores incluyen información como nombre, edad y equipo actual,
+                                    .</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 rounded-0">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary-cvc rounded-0 primary-border-bottom-cvc fs-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Colección y Gestión de Jugadores
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse  bg-tertiary-cvc bg-opacity-75" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div>
+                                <h4>¿Cómo puedo coleccionar jugadores en la plataforma?</h4>
+                                <p>Para coleccionar un jugador, haz clic en el botón "Coleccionar" en el perfil del
+                                    jugador. El jugador se añadirá a tu colección personal que puedes gestionar desde tu
+                                    cuenta.</p>
+
+                                <h4>¿Puedo compartir mi colección de jugadores con otros usuarios?</h4>
+                                <p>Sí, puedes compartir tu colección mediante un enlace único o en redes sociales. Otros
+                                    usuarios pueden ver tu colección, pero no podrán modificarla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 rounded-0">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed bg-secondary-cvc rounded-0 primary-border-bottom-cvc fs-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Soporte Técnico y Privacidad
+                        </button>
+                    </h3>
+                    <div id="collapseFive" class="accordion-collapse collapse  bg-tertiary-cvc bg-opacity-75" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div>
+                                <h4>Tengo problemas para acceder a mi cuenta, ¿qué puedo hacer?</h4>
+                                <p>Si tienes problemas para acceder a tu cuenta, intenta restablecer tu contraseña
+                                    mediante el enlace "¿Olvidaste tu contraseña?" en la página de inicio de sesión.
+                                    Si el problema persiste, contáctanos para asistencia.</p>
+
+                                <h4>¿Cómo puedo reportar un problema técnico en la plataforma?</h4>
+                                <p>Puedes reportar problemas técnicos enviándonos un correo a [correo electrónico de
+                                    soporte técnico] o utilizando el formulario de contacto en nuestro sitio
+                                    web.</p>
+
+                                <h4>¿Cómo protegen mi información personal?</h4>
+                                <p>Utilizamos tecnología de encriptación avanzada para proteger tu información
+                                    personal y de pago. Consulta nuestra Política de Privacidad para más
+                                    detalles.</p>
+
+                                <h4>¿Cómo puedo modificar o eliminar mi cuenta?</h4>
+                                <p>Puedes modificar tus datos personales desde tu cuenta en nuestro sitio web. Si
+                                    deseas eliminar tu cuenta, por favor contáctanos y procesaremos tu
+                                    solicitud.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 rounded-0">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed bg-secondary-cvc rounded-0 primary-border-bottom-cvc fs-5" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false"
+                                    aria-controls="collapseSix">
+                                Contacto
+                            </button>
+                        </h3>
+                        <div id="collapseSix" class="accordion-collapse collapse  bg-tertiary-cvc bg-opacity-75 rounded-0"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div>
+                                    <h4>¿Cómo puedo contactarlos para más información o soporte?</h4>
+                                    <p>Puedes contactarnos a través del formulario de contacto en nuestro sitio web,
+                                        enviándonos un correo a [correo electrónico] o llamándonos al [número de
+                                        teléfono].</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

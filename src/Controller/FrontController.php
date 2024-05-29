@@ -2,7 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Coach;
+use App\Entity\Player;
+use App\Entity\Team;
+use App\Repository\CoachRepository;
 use App\Repository\PlayerRepository;
+use App\Repository\TeamRepository;
 use \Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,7 +43,33 @@ class FrontController extends AbstractController
     #[Route('/cookies', name: 'app_cookies')]
     public function cookies(){
         return $this->render('front/cookies.html.twig', [
+        ]);
+    }
 
+    #[Route('/FAQ', name: 'app_faq')]
+    public function faq(){
+        return $this->render('front/faq.html.twig', [
+        ]);
+    }
+
+    #[Route('/preview/player/{id}', name: 'app_preview_player',methods: ['GET'])]
+    public function previewPlayer(Player $player){
+        return $this->render('preview.html.twig', [
+            'object' => $player
+        ]);
+    }
+
+    #[Route('/preview/coach/{id}', name: 'app_preview_coach',methods: ['GET'])]
+    public function previewCoach(Coach $coach){
+        return $this->render('preview.html.twig', [
+            'object'=>$coach
+        ]);
+    }
+
+    #[Route('/preview/team/{id}', name: 'app_preview_team',methods: ['GET'])]
+    public function previewTeam(Team $team){
+        return $this->render('preview.html.twig', [
+            'object'=>$team
         ]);
     }
 }
