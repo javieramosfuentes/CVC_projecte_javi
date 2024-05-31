@@ -1,0 +1,53 @@
+{% extends 'base_cvc.html.twig' %}
+
+{% block title %}Sobre Nosotros - CVC{% endblock %}
+
+{% block body %}
+    <div class="row py-4">
+        <div class="col-12 bg-primary-cvc p-5">
+            <div class="py-1 bg-quaternary-cvc"></div>
+            <h2 class="display-1 secondary-font-cvc text-quaternary-cvc my-2">CVC</h2>
+            <h3 class="tertiary-font-cvc my-2">Vive el fútbol a otro nivel</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-between">
+        <div class="col-6 bg-secondary-cvc">
+            <div class="m-4">
+                <h4 class="display-3">Bienvenidos a CVC</h4>
+                <p class="lead text-quaternary-cvc">Nuestro objetivo es proporcionar a los usuarios información
+                    detallada sobre los jugadores, entrenadores y equipos de la Federación Valenciana de Fútbol. Además, ofrecemos a
+                    los usuarios registrados la oportunidad de coleccionar cartas exclusivas de estos jugadores, entrenadores y equipos.</p>
+            </div>
+        </div>
+        <div class="col-2 bg-secondary-cvc text-center">
+            <a href="{{ path('app_faq') }}" class="text-tertiary-cvc text-decoration-none">
+            <h4 class="my-3">¿Necesitas ayuda?</h4>
+                <div class="d-flex flex-column justify-content-center text-quaternary-cvc">
+                    <p class="text-quaternary-cvc">Clica Aqui!</p>
+                    <i class="bi bi-patch-question display-1"></i>
+                </div>
+            </a>
+        </div>
+        <div class="col-3 bg-secondary-cvc text-center">
+            <a href="{{ path('app_faq') }}" class="text-tertiary-cvc text-decoration-none aboutUsBlock">
+                <h4 class="my-3">Estas són las dudas de gente</h4>
+                <div class="d-flex flex-column justify-content-center text-quaternary-cvc">
+                    <p class="text-quaternary-cvc">Ver</p>
+                    <i class="bi bi-person-badge display-1"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row py-4">
+        <div class="col-lg-12 col-12 bg-tertiary-cvc p-3">
+            <h4 class="my-4 text-secondary-cvc display-3">Finalidad y Función de la Web</h4>
+            <div class="text-quaternary-cvc">
+                <p>Esta plataforma ha sido creada con el propósito de centralizar toda la información relevante sobre los jugadores, entrenadores y equipos pertenecientes a la Federación Valenciana de Fútbol. Los usuarios pueden navegar y conocer detalles específicos sobre sus figuras deportivas favoritas y los equipos a los que pertenecen.</p>
+                <p>Para los usuarios registrados, hemos implementado una sección especial donde pueden coleccionar cartas digitales de jugadores, entrenadores y equipos. Estas cartas pueden intercambiarse con otros usuarios, fomentando la interacción y la comunidad entre los aficionados del fútbol valenciano.</p>
+                <p>Nuestra misión es no solo informar, sino también crear una comunidad unida por la pasión al fútbol, proporcionando herramientas y funcionalidades que permitan una experiencia enriquecedora y entretenida.</p>
+                <p>¡Únete a nosotros y sé parte de esta apasionante comunidad futbolística!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

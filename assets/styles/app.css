@@ -134,6 +134,10 @@
     left: 30px;
 }
 
+.aboutUsBlock:hover{
+    border-bottom: 2px solid var(--primary-color);
+}
+
 /** Botones redes */
 
 .hovered-button-up {

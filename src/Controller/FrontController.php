@@ -72,4 +72,10 @@ class FrontController extends AbstractController
             'object'=>$team
         ]);
     }
+
+    #[Route('/about', name: 'app_aboutUs')]
+    public function aboutUs(){
+        return $this->render('front/aboutUs.html.twig', [
+        ]);
+    }
 }
