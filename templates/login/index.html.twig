@@ -16,36 +16,39 @@
     </div>
     <form method="post" action="{{ path('app_login') }}" class="row">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <div class="col-3"></div>
-        <div class="form-floating my-3 text-quaternary-cvc col-6 px-0">
+        <div class="col-lg-3 col-0"></div>
+        <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
             <input type="text" class="form-control px- rounded-0" id="floatingInputUsername" placeholder="Usuario"
                    name="_username">
-            <label for="username" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-person-fill mx-1 m-lg-0"></i> Usuario</label>
+            <label for="floatingInputUsername" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-person-fill mx-1 m-lg-0"></i> Usuario</label>
         </div>
-        <div class="col-3"></div>
-        <div class="col-3"></div>
-        <div class="form-floating my-3 text-quaternary-cvc col-6 px-0">
+        <div class="col-lg-3 col-0"></div>
+        <div class="col-lg-3 col-0"></div>
+        <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
             <input type="password" class="form-control px-4 rounded-0" id="floatingInputPassword" placeholder="Contraseña"
                    name="_password">
-            <label for="password" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-key-fill mx-1 m-lg-0"></i> Contraseña</label>
+            <label for="floatingInputPassword" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-key-fill mx-1 m-lg-0"></i> Contraseña</label>
         </div>
-        <div class="col-3"></div>
+        <div class="col-0 col-lg-3"></div>
+        <div class="col-0 col-lg-3"></div>
+        <div class="col-12 col-lg-6 "></div>
         {% if error %}
-            <div class="alert alert-danger col-12" role="alert">
+            <div class="alert alert-danger" role="alert">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
         {% endif %}
-        <div class="col-3"></div>
-        <div class="col-6 rounded-0 px-0 px-lg-3 py-2 checkbox-div ">
+        <div class="col-0 col-lg-3"></div>
+        <div class="col-0 col-lg-3"></div>
+        <div class="col-12 col-lg-6 rounded-0 px-0 px-lg-3 py-2 checkbox-div">
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input" type="checkbox" name="cookies" required>
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Acepto las condiciones de uso y <a href="{{ path('app_cookies') }}" class="text-primary-cvc">privacidad</a>.</span>
             </label>
         </div>
-        <div class="col-3"></div>
-        <div class="col-3"></div>
-        <button class="btn bg-primary-cvc mt-3 col-6 rounded-0 fs-5" type="submit">Iniciar sesión</button>
-        <div class="col-3"></div>
+        <div class="col-0 col-lg-3"></div>
+        <div class="col-0 col-lg-3"></div>
+        <button class="btn bg-primary-cvc mt-3 col-12 col-lg-6 rounded-0 fs-5" type="submit">Iniciar sesión</button>
+        <div class="col-0 col-lg-3"></div>
     </form>
 {% endblock %}

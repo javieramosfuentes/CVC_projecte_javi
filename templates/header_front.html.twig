@@ -1,41 +1,39 @@
-<div class="row">
-    <div class="col-12 px-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-2 bg-primary-cvc">
-            <div class="d-flex justify-content-lg-between justify-content-center align-items-center w-100 px-4 gap-5">
-                <a class="navbar-brand" href="{{ path('app_home') }}">
-                    <img src="{{ asset('src/logoCVC-300x100.png') }}" alt="logo-cvc" width="100px">
-                </a>
-                {% if app.user %}
-                    <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                        <i class="bi bi-person-fill fs-2"></i>
-                    </a>
-                {% else %}
-                    <div class="d-flex align-items-center">
-                        <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login') }}">
-                            Inicia sesión
-                        </a>
-                        <span class="mx-3 text-quaternary-cvc">|</span>
-                        <a class="navbar-brand primary-font-cvc m-0" href="#">
-                            Regístrate
-                        </a>
-                    </div>
-                {% endif %}
-                <a class="navbar-toggler border-0 rounded-0 px-2" data-bs-toggle="offcanvas" href="#mobileList" role="button" aria-controls="mobileList">
-                    <span class="navbar-toggler-icon"></span>
-                </a>
-            </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-12 navbar bg-primary-cvc d-flex flex-wrap justify-content-lg-between justify-content-center align-items-center gap-5 px-lg-3">
+            <a class="navbar-brand m-0" href="{{ path('app_home') }}">
+                <img src="{{ asset('src/logoCVC-300x100.png') }}" alt="logo-cvc" width="100px">
+            </a>
+            {% if app.user %}
+                <a class="navbar-brand m-0" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <i class="bi bi-person-fill fs-2"></i>
+                </a>
+            {% else %}
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login') }}">
+                        Inicia sesión
+                    </a>
+                    <span class="mx-3 text-quaternary-cvc">|</span>
+                    <a class="navbar-brand primary-font-cvc m-0" href="#">
+                        Regístrate
+                    </a>
+                </div>
+            {% endif %}
+            <a class="navbar-toggler border-0 rounded-0 m-0 p-0 d-lg-none" data-bs-toggle="offcanvas" href="#mobileList" role="button" aria-controls="mobileList">
+                <span class="navbar-toggler-icon"></span>
+            </a>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light px-2 bg-quaternary-cvc shadow">
+        <nav class="navbar navbar-expand-lg navbar-light bg-quaternary-cvc shadow">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav align-items-center justify-content-center w-100 fs-3 gap-4">
                     {% if app.user %}
-                    <li class="nav-item active">
-                        <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Album</a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Album</a>
+                        </li>
                     {% endif %}
                     <li class="nav-item">
                         <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Contacto</a>
@@ -47,51 +45,51 @@
             </div>
         </nav>
     </div>
-</div>
-{% if app.user %}
-<div class="w-100 d-flex justify-content-center sticky-top">
-    <span class="primary-font-cvc text-center bg-danger px-2 py-1 rounded-4 my-3">Nuevo Sobre: 01h 12m 12s</span>
-</div>
-{% endif %}
+    {% if app.user %}
+        <div class="w-100 d-flex justify-content-center sticky-top">
+            <span class="primary-font-cvc text-center bg-danger px-2 py-1 rounded-4 my-3">Nuevo Sobre: 01h 12m 12s</span>
+        </div>
+    {% endif %}
 
-<div class="offcanvas offcanvas-end bg-quaternary-cvc" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header text-primary-cvc">
-        {% if app.user %}
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.username }}</h5>
-        {% endif %}
-        <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body d-flex flex-column justify-content-between text-light">
-        <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-        </div>
-        <div class="me-3">
-            <a href="{{ path('app_logout') }}" class="nav-link fs-4">
-                Cerrar sesión <i class="bi bi-box-arrow-left"></i>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="offcanvas offcanvas-top bg-quaternary-cvc h-100" tabindex="-1" id="mobileList" aria-labelledby="mobileListLabel">
-    <div class="offcanvas-header text-primary-cvc">
-        <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body d-flex flex-column justify-content-between text-light">
-        <ul class="navbar-nav align-items-center justify-content-center w-100 fs-3 gap-4">
+    <div class="offcanvas offcanvas-end bg-quaternary-cvc" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header text-primary-cvc">
             {% if app.user %}
-                <li class="nav-item active">
-                    <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Sobre</a>
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.username }}</h5>
+            {% endif %}
+            <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between text-light">
+            <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+            </div>
+            <div class="me-3">
+                <a href="{{ path('app_logout') }}" class="nav-link fs-4">
+                    Cerrar sesión <i class="bi bi-box-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-top bg-quaternary-cvc h-100" tabindex="-1" id="mobileList" aria-labelledby="mobileListLabel">
+        <div class="offcanvas-header text-primary-cvc">
+            <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between text-light">
+            <ul class="navbar-nav align-items-center justify-content-center w-100 fs-3 gap-4">
+                {% if app.user %}
+                    <li class="nav-item active">
+                        <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Album</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Album</a>
+                    <a class="nav-link primary-font-cvc text-primary-cvc" href="{{ path('app_aboutUs') }}">Sobre Nosotros</a>
                 </li>
-            {% endif %}
-            <li class="nav-item">
-                <a class="nav-link primary-font-cvc text-primary-cvc" href="#">Contacto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link primary-font-cvc text-primary-cvc" href="{{ path('app_aboutUs') }}">Sobre Nosotros</a>
-            </li>
-        </ul>
+            </ul>
+        </div>
     </div>
 </div>
