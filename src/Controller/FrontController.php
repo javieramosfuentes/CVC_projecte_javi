@@ -78,4 +78,12 @@ class FrontController extends AbstractController
         return $this->render('front/aboutUs.html.twig', [
         ]);
     }
+
+    #[Route('/contact', name: 'app_contact',methods: ['GET','POST'])]
+    public function contact(){
+
+
+        return $this->render('front/contact.html.twig', [
+        ]);
+    }
 }

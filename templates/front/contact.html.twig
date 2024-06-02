@@ -1,0 +1,36 @@
+{% extends 'base_cvc.html.twig' %}
+
+{% block title %}Contacto - CVC{% endblock %}
+
+{% block body %}
+    <div class="row py-2">
+        <div class="col-12">
+            <h2 class="display-4 secondary-font-cvc text-primary-cvc text-center">Resuelve tus dudas</h2>
+        </div>
+    </div>
+
+    <div class="row mb-lg-5 pb-lg-5 mb-3 pb-0">
+        <div class="col-lg-3 col-0"></div>
+        <div class="col-lg-6 col-12 primary-font-cvc">
+            <div class="mt-5">
+                <h2 class="text-center py-2">Contacto</h2>
+                <form action="{{ path('app_contact') }}" method="post" class="text-quaternary-cvc">
+                    <div class="form-floating">
+                        <input type="text" class="form-control rounded-0" id="subject" placeholder="Asunto">
+                        <label for="subject">Asunto</label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="message" class="text-tertiary-cvc fs-4">Mensaje</label>
+                        <textarea class="form-control rounded-0" id="message" rows="5" placeholder="Escribe tu mensaje"></textarea>
+                    </div>
+                    {% if app.user %}
+                        <button type="submit" class="btn bg-primary-cvc rounded-0 w-100 fs-5">Enviar</button>
+                    {% else %}
+                        <a href="{{ path('app_login') }}" class="btn bg-primary-cvc rounded-0 w-100 fs-5">Enviar</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-3 col-0"></div>
+    </div>
+{% endblock %}
