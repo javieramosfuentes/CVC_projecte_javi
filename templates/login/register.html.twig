@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro - CVC{% endblock %}
+
+    {% block body %}
+        <!--
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-2">Resgístrate</h2>
+            </div>
+            <div class="col-12">
+                <p class="fs-4">¿Ya tienes una cuenta? Inicia Sesión <a href="{{ path('app_login') }}" class="text-primary-cvc">aquí</a>!</p>
+            </div>
+        </div>
+        <form method="post" action="{{ path('app_register') }}" class="row">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('register') }}">
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                <input type="text" class="" id="floatingInputUsername" placeholder="Usuario"
+                       name="_username">
+            </div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                <input type="email" class="form-control px-4 rounded-0" id="floatingInputEmail" placeholder="Email"
+                       name="_email">
+            </div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                <input type="password" class="form-control px-4 rounded-0" id="floatingInputPassword" placeholder="Contraseña"
+                       name="_password">
+            </div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-12 col-lg-6 "></div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-12 col-lg-6 rounded-0 px-0 px-lg-3 py-2 checkbox-div">
+                <label class="custom-radio-checkbox">
+                    <input class="custom-radio-checkbox__input" type="checkbox" name="cookies" required>
+                    <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                    <span class="custom-radio-checkbox__text">Acepto las condiciones de uso y <a href="{{ path('app_cookies') }}" class="text-primary-cvc">privacidad</a>.</span>
+                </label>
+            </div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-0 col-lg-3"></div>
+            <button class="btn bg-primary-cvc mt-3 col-12 col-lg-6 rounded-0 fs-5" type="submit">Regístrame</button>
+            <div class="col-0 col-lg-3"></div>
+        </form>-->
+
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-2">Resgístrate</h2>
+            </div>
+            <div class="col-12">
+                <p class="fs-4">¿Ya tienes una cuenta? Inicia Sesión <a href="{{ path('app_login') }}" class="text-primary-cvc">aquí</a>!</p>
+            </div>
+        </div>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                {{ form_widget(form.username, { 'attr' :{ 'class':'form-control px-4 rounded-0','id':'floatingInputUsername','placeholder':'Usuario' }}) }}
+                <label for="floatingInputUsername" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-person-fill mx-1 m-lg-0"></i> Usuario</label>
+            </div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                {{ form_widget(form.user.email, { 'attr': { 'class':'form-control px-4 rounded-0','id':'floatingInputEmail','placeholder':'Email' }}) }}
+                <label for="floatingInputEmail" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-envelope-at-fill mx-1 m-lg-0"></i> Email</label>
+            </div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="col-lg-3 col-0"></div>
+            <div class="form-floating my-3 text-quaternary-cvc col-lg-6 col-12 px-0">
+                {{ form_widget(form.password, { 'attr': { 'class':'form-control px-4 rounded-0','id':'floatingInputPassword','placeholder':'Contraseña' }}) }}
+                <label for="floatingInputPassword" class="mx-lg-4 w-100 w-lg-25 d-flex d-lg-inline justify-content-center"><i class="bi bi-key-fill mx-1 m-lg-0"></i> Contraseña</label>
+            </div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-12 col-lg-6 rounded-0 px-0 px-lg-3 py-2 checkbox-div">
+                {{ form_widget(form.cookies, { 'attr': { 'class':'rounded-0'}}) }}
+            </div>
+            <div class="col-0 col-lg-3"></div>
+            <div class="col-0 col-lg-3"></div>
+            <button class="btn bg-primary-cvc mt-3 col-12 col-lg-6 rounded-0 fs-5" type="submit">Regístrame</button>
+            <div class="col-0 col-lg-3"></div>
+        </div>
+        {{ form_end(form) }}
+    {% endblock %}
