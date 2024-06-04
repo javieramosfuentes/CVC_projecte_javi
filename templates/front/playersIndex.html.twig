@@ -1,0 +1,9 @@
+{% for player in players %}
+    <a href="{{ path('app_player_show', {'id': player.id}) }}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
+        <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
+        <div class="w-25 d-flex">
+            <div class="text-center w-25">{{ player.position }}</div>
+            <div class="w-75">{{ player.team.name }}</div>
+        </div>
+    </a>
+{% endfor %}

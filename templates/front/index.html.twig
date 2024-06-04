@@ -9,19 +9,11 @@
         </div>
         <div class="col-12 p-4 my-3 text-quaternary-cvc">
             <div class="form-floating">
-                <input type="text" id="indexSearcher" name="home-searcher" placeholder="Busca aquí tus jugadores favoritos" class="form-control text-light rounded-0 bg-quaternary-cvc" data-target="search.inputSearch">
+                <input type="text" id="indexSearcher" name="home-searcher" placeholder="Busca aquí tus jugadores favoritos" class="form-control text-light rounded-0 bg-quaternary-cvc" data-search-target="inputSearch" data-action="input->search#search">
                 <label for="indexSearcher" class="text-light">Busca aquí tus jugadores favoritos</label>
             </div>
-            <div class="list-group rounded-0" data-target="search.results">
-                {% for player in players %}
-                    <a href="http://localhost:8080/preview/player/{{ player.id }}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
-                       <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
-                        <div class="w-25 d-flex">
-                            <div class="text-center w-25">{{ player.position }}</div>
-                            <div class="w-75"> {{ player.team.name }}</div>
-                        </div>
-                    </a>
-                {% endfor %}
+            <div class="list-group rounded-0" data-search-target="searchResults">
+                {% include 'front/playersIndex.html.twig' %}
             </div>
         </div>
     </div>

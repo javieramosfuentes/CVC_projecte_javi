@@ -15,29 +15,33 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FrontController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'app_home',methods: ['GET'])]
     public function index(Request $request, PlayerRepository $playerRepository): Response
     {
-        $query = $request->query->get('query', '');
+        $query = $request->query->get('q', '');
         if ($query === '') {
             $players = $playerRepository->createQueryBuilder('p')
                 ->orderBy('p.name', 'ASC')
                 ->setMaxResults(15)
                 ->getQuery()
                 ->getResult();
+            return $this->render('front/index.html.twig', [
+                'players' => $players,
+                'q'=>$query
+            ]);
         } else {
             $players = $playerRepository->createQueryBuilder('p')
                 ->where('p.name LIKE :query')
                 ->setParameter('query', '%' . $query . '%')
                 ->orderBy('p.name', 'ASC')
-                ->setMaxResults(15)
                 ->getQuery()
                 ->getResult();
-        }
 
-        return $this->render('front/index.html.twig', [
-            'players' => $players,
-        ]);
+            return $this->render('front/playersIndex.html.twig', [
+                'players' => $players,
+                'q'=>$query
+            ]);
+        }
     }
 
     #[Route('/cookies', name: 'app_cookies')]
