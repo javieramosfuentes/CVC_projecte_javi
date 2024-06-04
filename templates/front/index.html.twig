@@ -9,12 +9,12 @@
         </div>
         <div class="col-12 p-4 my-3 text-quaternary-cvc">
             <div class="form-floating">
-                <input type="text" id="indexSearcher" name="home-searcher" placeholder="Busca aquí tus jugadores favoritos" class="form-control rounded-0" data-target="search.inputSearch">
-                <label for="indexSearcher">Busca aquí tus jugadores favoritos</label>
+                <input type="text" id="indexSearcher" name="home-searcher" placeholder="Busca aquí tus jugadores favoritos" class="form-control text-light rounded-0 bg-quaternary-cvc" data-target="search.inputSearch">
+                <label for="indexSearcher" class="text-light">Busca aquí tus jugadores favoritos</label>
             </div>
             <div class="list-group rounded-0" data-target="search.results">
                 {% for player in players %}
-                    <a href="http://localhost:8080/preview/player/{{ player.id }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" aria-current="true">
+                    <a href="http://localhost:8080/preview/player/{{ player.id }}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
                        <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
                         <div class="w-25 d-flex">
                             <div class="text-center w-25">{{ player.position }}</div>

@@ -222,3 +222,25 @@
     background-color: rgb(52, 167, 187);
     border-color: white;
 }
+
+#indexSearcher + label:after {
+    background: var(--quaternary-color) !important;
+}
+
+.index-result{
+    border-bottom: 1px solid #389a42 !important;
+    transition: .5s;
+}
+
+.index-result:hover{
+    background-color:var(--primary-color) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.index-result:active{
+    background-color:var(--primary-color) !important;
+}
+
+.index-result:not(:hover){
+    opacity: 80% !important;
+}
