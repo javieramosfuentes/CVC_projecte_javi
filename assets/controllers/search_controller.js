@@ -3,6 +3,7 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
     static targets = ['inputSearch', 'searchResults'];
+
     connect() {
         console.log('Search controller connected!');
     }
@@ -12,11 +13,24 @@ export default class extends Controller {
         const searchTerm = this.inputSearchTarget.value;
 
         fetch(`/?q=${encodeURIComponent(searchTerm)}`, {
-            method: 'GET', // Asegúrate de que el método corresponda con tu controlador PHP
+            method: 'GET',
         })
             .then(response => response.text())
             .then(html => {
-                this.searchResultsTarget.innerHTML = html;
+                // Directly insert the HTML response
+                const startTag = '<div class="list-group rounded-0" data-search-target="searchResults" id="searchResults">';
+                const endTag = '</div>';
+                const startIndex = html.indexOf(startTag);
+                console.log("startIndex:"+startIndex)
+                const endIndex = html.indexOf(endTag, startIndex);
+                console.log("endIndex:"+endIndex)
+                if (startIndex !== -1 && endIndex !== -1) {
+                    const contentStart = startIndex + startTag.length;
+                    console.log("contentStart:"+contentStart)
+                    const divContent = html.substring(contentStart, endIndex);
+                    console.log(divContent)
+                    this.searchResultsTarget.innerHTML = divContent;
+                }
             })
             .catch(error => {
                 console.error('Error en la petición AJAX:', error);

@@ -12,8 +12,8 @@
                 <input type="text" id="indexSearcher" name="home-searcher" placeholder="Busca aquí tus jugadores favoritos" class="form-control text-light rounded-0 bg-quaternary-cvc" data-search-target="inputSearch" data-action="input->search#search">
                 <label for="indexSearcher" class="text-light">Busca aquí tus jugadores favoritos</label>
             </div>
-            <div class="list-group rounded-0" data-search-target="searchResults">
-                {% include 'front/playersIndex.html.twig' %}
+            <div class="list-group rounded-0" data-search-target="searchResults" id="searchResults">
+                {% include 'front/playersIndex.html.twig'  with {'players': players} %}
             </div>
         </div>
     </div>

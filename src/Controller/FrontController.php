@@ -25,23 +25,19 @@ class FrontController extends AbstractController
                 ->setMaxResults(15)
                 ->getQuery()
                 ->getResult();
-            return $this->render('front/index.html.twig', [
-                'players' => $players,
-                'q'=>$query
-            ]);
         } else {
             $players = $playerRepository->createQueryBuilder('p')
                 ->where('p.name LIKE :query')
                 ->setParameter('query', '%' . $query . '%')
                 ->orderBy('p.name', 'ASC')
+                ->setMaxResults(15)
                 ->getQuery()
                 ->getResult();
-
-            return $this->render('front/playersIndex.html.twig', [
-                'players' => $players,
-                'q'=>$query
-            ]);
         }
+        return $this->render('front/index.html.twig', [
+            'players' => $players,
+            'q'=>$query
+        ]);
     }
 
     #[Route('/cookies', name: 'app_cookies')]
