@@ -1,18 +1,25 @@
 @startgantt
-printscale daily zoom 1
+Project starts the 11 of March 2024
 
 ' Tareas principals
-[3 hores : Introducció] lasts 3 days and is colored in Red
-[5 hores : Anàlisi] lasts 5 days and starts at [3 hores : Introducció]'s end and is colored in Orange
-[12 hores : Disseny model de dades] lasts 12 days and starts at [5 hores : Anàlisi]'s end and is colored in Yellow
-[8 hores : Disseny dels Mockups] lasts 8 days and starts at [12 hores : Disseny model de dades]'s end and is colored in Yellow
-[8 hores : Disseny dels Wireframes] lasts 8 days and starts at [8 hores : Disseny dels Mockups]'s end and is colored in Yellow
-[15 hores : Implementació model dades] lasts 15 days and starts at [8 hores : Disseny dels Wireframes]'s end and is colored in Yellow
-[20 hores : Maquetació front] lasts 20 days and starts at [15 hores : Implementació model dades]'s end and is colored in Yellow
-[20 hores : Maquetació back] lasts 20 days and starts at [20 hores : Maquetació front]'s end and is colored in Yellow
-[1 hores : Anàlisi Econòmic] lasts 1 days and starts at [20 hores : Maquetació back]'s end and is colored in Grey
-[2 hores : Ampliacions o Millores] lasts 2 days and starts at [1 hores : Anàlisi Econòmic]'s end and is colored in Turquoise
-[1 hores : Prevenció de riscos] lasts 1 days and starts at [2 hores : Ampliacions o Millores]'s end and is colored in Silver
-[2 hores :Avaluació del projecte] lasts 2 days and starts at [1 hores : Prevenció de riscos]'s end and is colored in Purple
 
+-- Documentació --
+[Proposta] lasts 2 days
+[Introducció] lasts 1 days and starts at [Proposta]'s end and is colored in Red
+[Anàlisi] lasts 5 days and starts at [Introducció]'s end and is colored in Orange
+[Anàlisi Econòmic] lasts 1 days and starts at [Anàlisi]'s end and is colored in Grey
+[Ampliacions o Millores] lasts 2 days and starts at [Anàlisi Econòmic]'s end and is colored in Turquoise
+[Prevenció de riscos] lasts 1 days and starts at [Ampliacions o Millores]'s end and is colored in Silver
+[Avaluació del projecte] lasts 2 days and starts at [Prevenció de riscos]'s end and is colored in Purple
+
+-- Disseny --
+[Disseny model de dades] lasts 12 days and starts at [Avaluació del projecte]'s end and is colored in Yellow
+[Implementació model dades] lasts 15 days and starts at [Disseny model de dades]'s end and is colored in Yellow
+[Disseny dels Mockups] lasts 8 days and starts at [Implementació model dades]'s end and is colored in Yellow
+[Disseny dels Wireframes] lasts 8 days and starts at [Disseny dels Mockups]'s end and is colored in Yellow
+
+-- Maquetació --
+
+[Maquetació front] lasts 20 days and starts at [Disseny dels Wireframes]'s end and is colored in Yellow
+[Maquetació back] lasts 20 days and starts at [Maquetació front]'s end and is colored in Yellow
 @endgantt
