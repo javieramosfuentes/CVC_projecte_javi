@@ -1,42 +1,43 @@
 {% extends 'base_cvc_back.html.twig' %}
 
-{% block title %}Player{% endblock %}
+{% block title %}Detalles del jugador - CVC{% endblock %}
 
 {% block body %}
-    <h1>Player</h1>
+    <div class="row">
+        <div class="col-12 py-3">
+            <h2 class="m-0 border-bottom border-success text-primary-cvc secondary-font-cvc d-flex align-items-center">{{ player.name }}</h2>
+        </div>
+        <div class="col-12">
+            <table class="table table-dark">
+                <tbody>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ player.name }}</td>
+                </tr>
+                <tr>
+                    <th>Apellido</th>
+                    <td>{{ player.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Posición</th>
+                    <td>{{ player.position }}</td>
+                </tr>
+                <tr>
+                    <th>Edad</th>
+                    <td>{{ player.age }}</td>
+                </tr>
+                <tr>
+                    <th>Goles</th>
+                    <td>{{ player.goals }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ player.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ player.name }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ player.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Position</th>
-                <td>{{ player.position }}</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{ player.age }}</td>
-            </tr>
-            <tr>
-                <th>Goals</th>
-                <td>{{ player.goals }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <a href="{{ path('app_player_index') }}" class="btn bg-secondary-cvc rounded-0">Volver <i class="bi bi-arrow-return-left"></i></a>
 
-    <a href="{{ path('app_player_index') }}">back to list</a>
+            <a href="{{ path('app_player_edit', {'id': player.id}) }}" class="btn bg-primary text-light rounded-0">Editar <i class="bi bi-pencil-square"></i></a>
 
-    <a href="{{ path('app_player_edit', {'id': player.id}) }}">edit</a>
-
-    {{ include('player/_delete_form.html.twig') }}
+            {{ include('player/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

@@ -92,6 +92,10 @@
     border: .5rem solid var(--primary-color) !important;
 }
 
+.border-end-cvc{
+    border-right: .5rem solid var(--primary-color) !important;
+}
+
 .checkbox-div .checkbox-input:checked{
     background-color: var(--secondary-color) !important;
 }

@@ -36,13 +36,31 @@ class LoginRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Login
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        public function findOneByUser($value): ?Login
+        {
+            return $this->createQueryBuilder('l')
+                ->andWhere('l.user = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult()
+            ;
+        }
+
+        public function findAllQuery(): \Doctrine\ORM\Query
+        {
+            return $this->createQueryBuilder('c')
+                ->orderBy('c.user', 'ASC')
+                ->getQuery();
+            //->andWhere('c.isDeleted IS NULL OR c.isDeleted = 0') filtrat per al soft delete
+
+        }
+
+        public function findByText($value): array {
+            return $this->createQueryBuilder('c')
+                ->where('c.user LIKE :value')
+                ->setParameter('value', '%' . $value . '%')
+                ->orderBy('c.user', 'ASC')
+                ->getQuery()
+                ->getResult();
+        }
 }

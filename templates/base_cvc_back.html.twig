@@ -20,9 +20,9 @@
 
         </header>
         <main class="row primary-font-cvc">
-            <aside class="col-2 bg-quaternary-cvc border-end primary-border-cvc ">
+            <aside class="col-2 bg-quaternary-cvc border-end-cvc">
                 <div class="d-flex flex-column flex-shrink-0 p-3 fs-5">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <a href="{{ path("app_player_index") }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <img src="{{ asset('src/logoCVC-300x100-verd.png') }}" alt="logo-cvc" width="100px">
                     </a>
                     <hr>
@@ -46,7 +46,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-primary-cvc">
+                            <a href="{{ path("app_user_index") }}" class="nav-link text-primary-cvc">
                                 <i class="bi bi-people-fill"></i>
                                 Usuarios
                             </a>
@@ -65,7 +65,7 @@
                 {% block body %}
                 {% endblock %}
                 <footer class="container-fluid mt-3 p-0">
-                    {% include 'footer_front.html.twig' %}
+                    {% include 'footer_back.html.twig' %}
                 </footer>
             </article>
         </main>

@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\LoginRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +17,23 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
+    public function index(LoginRepository $loginRepository,PaginatorInterface $paginator,Request $request): Response
     {
+        $q = $request->query->get('q', '');
+
+        if (empty($q)) {
+            $teamQuery = $loginRepository->findAllQuery();
+        } else {
+            $teamQuery = $loginRepository->findByText($q);
+        }
+        $pagination = $paginator->paginate(
+            $teamQuery,
+            $request->query->getInt('page', 1),
+            20
+        );
         return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+            'users' => $pagination,
+            'q' => $q,
         ]);
     }
 
@@ -43,10 +58,11 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user,LoginRepository $loginRepository): Response
     {
+        $userLogin = $loginRepository->findOneByUser($user->getId());
         return $this->render('user/show.html.twig', [
-            'user' => $user,
+            'user' => $userLogin,
         ]);
     }
 

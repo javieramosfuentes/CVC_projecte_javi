@@ -3,9 +3,6 @@
 {% block title %}Inicia Sesión - CVC{% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
     <div class="row text-center mb-5">
         <div class="col-12">
             <h2 class="display-2">Inicio de Sesión</h2>
