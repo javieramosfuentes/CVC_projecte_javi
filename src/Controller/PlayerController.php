@@ -13,11 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/player')]
+#[Route('/admin/player')]
 #[IsGranted('ROLE_ADMIN')]
 class PlayerController extends AbstractController
 {
-    #[Route('/', name: 'app_player_index', methods: ['GET'])]
+    #[Route('', name: 'app_player_index', methods: ['GET'])]
     public function index(PlayerRepository $playerRepository,PaginatorInterface $paginator,Request $request): Response
     {
         $q = $request->query->get('q', '');

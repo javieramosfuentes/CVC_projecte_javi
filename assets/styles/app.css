@@ -163,6 +163,10 @@
     top: 15%;
 }
 
+.turbo-progress-bar{
+    background-color: var(--primary-color);
+}
+
 .hovered-button-up:hover i {
     color: white !important;
 }

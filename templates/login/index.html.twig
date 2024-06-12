@@ -28,12 +28,13 @@
         </div>
         <div class="col-0 col-lg-3"></div>
         <div class="col-0 col-lg-3"></div>
-        <div class="col-12 col-lg-6 "></div>
+        <div class="col-12 col-lg-6 ">
         {% if error %}
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger rounded-0" role="alert">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
         {% endif %}
+        </div>
         <div class="col-0 col-lg-3"></div>
         <div class="col-0 col-lg-3"></div>
         <div class="col-12 col-lg-6 rounded-0 px-0 px-lg-3 py-2 checkbox-div">

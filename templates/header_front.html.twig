@@ -6,9 +6,7 @@
                 <img src="{{ asset('src/logoCVC-300x100.png') }}" alt="logo-cvc" width="100px">
             </a>
             {% if app.user %}
-                <a class="navbar-brand m-0" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                    <i class="bi bi-person-fill fs-2"></i>
-                </a>
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-person-fill fs-2"></i></button>
             {% else %}
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand primary-font-cvc m-0" href="{{ path('app_login') }}">
@@ -51,24 +49,20 @@
         </div>
     {% endif %}
 
-    <div class="offcanvas offcanvas-end bg-quaternary-cvc" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    {% if app.user %}
+    <div class="offcanvas offcanvas-end bg-quaternary-cvc" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header text-primary-cvc">
-            {% if app.user %}
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.username }}</h5>
-            {% endif %}
-            <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.username }}</h5>
+            <button type="button" class="btn-close text-reset bg-primary-cvc opacity-75 rounded-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body d-flex flex-column justify-content-between text-light">
-            <div>
-                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-            </div>
-            <div class="me-3">
-                <a href="{{ path('app_logout') }}" class="nav-link fs-4">
-                    Cerrar sesión <i class="bi bi-box-arrow-left"></i>
-                </a>
-            </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-end text-light">
+            <a href="{{ path('app_logout') }}" class="nav-link fs-4 me-3">
+                Cerrar sesión <i class="bi bi-box-arrow-left"></i>
+            </a>
         </div>
     </div>
+    {% endif %}
+
     <div class="offcanvas offcanvas-top bg-quaternary-cvc h-100" tabindex="-1" id="mobileList" aria-labelledby="mobileListLabel">
         <div class="offcanvas-header text-primary-cvc">
             <button type="button" class="btn-close bg-primary-cvc rounded-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>

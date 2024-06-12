@@ -1,11 +1,14 @@
 {% extends 'base_cvc_back.html.twig' %}
 
-{% block title %}New Coach{% endblock %}
+{% block title %}Nuevo Entrenador - CVC{% endblock %}
 
 {% block body %}
-    <h1>Create new Coach</h1>
-
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="secondary-font-cvc">Nuevo Entrenador</h2>
+        </div>
+    </div>
     {{ include('coach/_form.html.twig') }}
-
-    <a href="{{ path('app_coach_index') }}">back to list</a>
+</div>
 {% endblock %}
