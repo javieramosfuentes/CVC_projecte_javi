@@ -1,9 +1,19 @@
 {% for player in players %}
-    <a href="{{ path('app_player_show', {'id': player.id}) }}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
-        <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
-        <span class="w-25 d-flex">
+    {% if app.user %}
+        <a href="{{ path('app_login')}}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
+            <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
+            <span class="w-25 d-flex">
             <span class="text-center w-25">{{ player.position }}</span>
             <span class="w-75">{{ player.team.name }}</span>
         </span>
-    </a>
+        </a>
+    {% else %}
+        <a href="{{ path('app_preview_player', {'id': player.id}) }}" class="bg-secondary-cvc list-group-item list-group-item-action d-flex justify-content-between align-items-center index-result" aria-current="true">
+            <span class="w-75">{{ player.name }} {{ player.lastname }}</span>
+            <span class="w-25 d-flex">
+            <span class="text-center w-25">{{ player.position }}</span>
+            <span class="w-75">{{ player.team.name }}</span>
+        </span>
+        </a>
+    {% endif %}
 {% endfor %}
