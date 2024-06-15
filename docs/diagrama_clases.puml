@@ -1,9 +1,15 @@
 @startuml 
 class User {
     - id_user: int
-    - username: string
-    - password: string
     - email: string
+}
+
+class Login{
+        - id_login: int
+        - username: string
+        - password: string
+        - roles: string
+        - user: User
 }
 
 class Album {
